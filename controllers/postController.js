@@ -7,7 +7,7 @@ const arrayPosts = require("../data/posts.js")
 
 
 // index
-    router.get('/', function (req, res) {
+router.get('/', function (req, res) {
     res.send('Lista delle pizze');
     });
     // show

@@ -3,9 +3,7 @@ const app = express()
 const port = 4000;
 const postController = require("./controllers/postController.js")
 
-app.use('/',(req,res)=>{
-    res.send('hello world')
-})
+
 
 
 app.use('/api/posts', postController)
