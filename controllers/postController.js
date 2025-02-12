@@ -1,18 +1,20 @@
 const express = require('express')
 const router = express.Router();
-
 const arrayPosts = require("../data/posts.js")
 
 
 
 
-// index
-router.get('/', function (req, res) {
-    res.send('Lista dei post');
+
+
+
+    // index
+    router.get('/', function (req, res) {
+    res.json(arrayPosts)
     });
     // show
     router.get('/:id', function (req, res) {
-    res.send(`Dettagli dei post ${req.params.id}`);
+    res.send(`Dettagli del post ${req.params.id}`);
     });
     // store
     router.post('/', function (req, res) {
