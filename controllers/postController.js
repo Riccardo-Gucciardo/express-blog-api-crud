@@ -17,8 +17,25 @@ function index(req,res){
 
 }
 function show(req,res){
-res.send(`Dettagli della pizza ${req.params.id}`)
 
+const id = parseInt(req.params.id);
+
+const post =arrayPosts.find(arrayPosts=>arrayPosts.id === id);
+
+if(!arrayPosts){
+    
+    res.status(404)
+
+    return res.json(
+        {
+            status : 404,
+            error : "not found",
+            message :"post not found"
+        }
+    );
+}
+
+    res.json(post)
 
     
 }
