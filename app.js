@@ -10,6 +10,6 @@ app.use('/api/posts', postrouter)
 
 
 app.listen(port, ()=>{
-    console.log(`example app listening on port ${port}`);
+    console.log(`example app listening on port ${port}`); 
     
 })

@@ -3,11 +3,11 @@ const arrayPosts = require("../data/posts.js")
 
 function index(req,res){
 
-    let filteredPosts = posts;
+    let filteredPosts = arrayPosts;
 
     if(req.query.tags) {
-        filteredPosts = post.filter(posts=>{
-            return post.tags.includes(req.qery.tags)
+        filteredPosts = arrayPosts.filter(arrayPosts=>{
+            return arrayPosts.tags.includes(req.query.tags)
         })
     }
 
