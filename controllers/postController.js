@@ -1,38 +1,53 @@
-const express = require('express')
-const router = express.Router();
+
 const arrayPosts = require("../data/posts.js")
 
+function index(req,res){
+
+    let filteredPosts = posts;
+
+    if(req.query.tags) {
+        filteredPosts = post.filter(posts=>{
+            return post.tags.includes(req.qery.tags)
+        })
+    }
+
+    res.json(filteredPosts)
+
+
+
+}
+function show(req,res){
+res.send(`Dettagli della pizza ${req.params.id}`)
+
+
+    
+}
+function store(req,res){
+    res.send('Creazione nuova pizza');
+
+
+    
+}
+function update(req,res){
+    res.send(`Modifica integrale della pizza ${req.params.id} `);
+
+
+    
+}
+function patch(req,res){
+    res.send(`Modifica parziale della pizza ${req.params.id} `);
+
+
+    
+}
+function destroy(req,res){
+    res.send(`Eliminazione della pizza  ${req.params.id}`);
+
+
+    
+}
 
 
 
 
-
-
-    // index
-    router.get('/', function (req, res) {
-    res.json(arrayPosts)
-    });
-    // show
-    router.get('/:id', function (req, res) {
-    res.send(`Dettagli del post ${req.params.id}`);
-    });
-    // store
-    router.post('/', function (req, res) {
-    res.send('Creazione nuovo post');
-    });
-    // update
-    router.put('/:id', function (req, res) {
-    res.send(`Modifica integrale del post ${req.params.id} `);
-    });
-    // modify
-    router.patch('/:id', function (req, res) {
-    res.send(`Modifica parziale del post ${req.params.id} `);
-    });
-    // destroy
-    router.delete('/:id', function (req, res) {
-    res.send(`Eliminazione del post  ${req.params.id}`);
-    });
-
-
-
-module.exports = router;
+module.exports = {index,show,store,update,patch,destroy};

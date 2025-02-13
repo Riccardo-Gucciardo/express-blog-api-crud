@@ -1,12 +1,12 @@
 const express = require("express");
 const app = express()
 const port = 4000;
-const postController = require("./controllers/postController.js")
+const postrouter = require("./routers/postsRouter")
+
+app.use(express.static('public'));
 
 
-
-
-app.use('/api/posts', postController)
+app.use('/api/posts', postrouter)
 
 
 app.listen(port, ()=>{
