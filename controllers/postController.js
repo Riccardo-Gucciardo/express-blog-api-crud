@@ -11,6 +11,7 @@ function index(req,res){
         })
     }
 
+
     res.json(filteredPosts)
 
 
@@ -58,7 +59,26 @@ function patch(req,res){
     
 }
 function destroy(req,res){
-    res.send(`Eliminazione della pizza  ${req.params.id}`);
+const id = parseInt(req.params.id);
+
+const post =arrayPosts.find(arrayPosts=>arrayPosts.id === id);
+
+if(!post){
+    
+    res.status(404)
+
+    return res.json(
+        {
+            status : 404,
+            error : "not found",
+            message :"post not found"
+        }
+    );
+}
+arrayPosts.splice(arrayPosts.indexOf(post), 1);
+
+res.sendStatus(204)
+    
 
 
     
