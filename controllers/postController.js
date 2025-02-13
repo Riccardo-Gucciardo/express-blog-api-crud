@@ -22,7 +22,7 @@ const id = parseInt(req.params.id);
 
 const post =arrayPosts.find(arrayPosts=>arrayPosts.id === id);
 
-if(!arrayPosts){
+if(!post){
     
     res.status(404)
 
